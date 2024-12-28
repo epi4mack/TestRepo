@@ -13,5 +13,5 @@ steps:
 - checkout: self
 
 - script: |
-    python main.py  # запускаем main.py
+    python main.py
   displayName: 'Run main.py'
