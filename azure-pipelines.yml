@@ -1,19 +1,22 @@
 trigger:
-- main  # укажите ветку, на которой будет срабатывать пайплайн, например, main
+- main
 
 pool:
-  name: 'Default'  # указываем пул агентов 'Default'
+  name: 'Default'  
 
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.x'  # используем последнюю доступную версию Python 3
+    versionSpec: '3.x'  
   displayName: 'Set up Python'
 
-- checkout: self  # клонируем репозиторий
+- checkout: self  
 
 - script: |
-    python -m pip install --upgrade pip  # обновляем pip
+    python -m pip install --upgrade pip  # обновляем pip до последней версии
+  displayName: 'Upgrade pip'
+
+- script: |
     pip install -r requirements.txt  # устанавливаем зависимости из requirements.txt
   displayName: 'Install dependencies'
 
